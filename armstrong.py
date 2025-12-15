@@ -60,3 +60,22 @@ if __name__ == '__main__':
 ##------------------------------------------------------##
 ##------------------------------------------------------##
 
+def maganhangzot_torol(s: str):
+    maganhangzok = ['a', 'á', 'e', 'é', 'i', 'í', 'o', 'ó', 'ö', 'ő', 'u', 'ú', 'ü', 'ű']
+    for betu in s:
+        if betu in maganhangzok:
+            s = s.replace(betu, "")
+    return s
+
+szoveg = input("Input: ")
+print(f"Return: {maganhangzot_torol(szoveg)}")
+
+class TestMaganhangzoTorol(unittest.TestCase):
+    
+    def test_maganhangzok_eltavolitasa(self):
+        self.assertEqual(maganhangzot_torol("almafa"), "lmf")
+        self.assertEqual(maganhangzot_torol("édesanyám"), "dsn")
+        self.assertEqual(maganhangzot_torol("programozás"), "prgrmzs")
+    
+if __name__ == '__main__':
+    unittest.main()
